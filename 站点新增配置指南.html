@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>站点新增配置指南 - UU 跑腿城市运营专家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+        .section {
+            padding: 25px;
+        }
+        .section-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 15px;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        .step-desc {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .step-image {
+            margin-top: 8px;
+        }
+        .step-image img {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: max-width 0.3s;
+        }
+        .system-path {
+            background: #f8fafc;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 20px;
+        }
+        .system-path-label {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .system-path-value {
+            color: #1e293b;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .solutions {
+            background: #f9fafb;
+            padding: 25px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .solutions-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        .solution-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+        }
+        .solution-name {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .solution-detail {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .solution-detail div {
+            margin-bottom: 4px;
+        }
+        .footer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-top: 2px solid #f59e0b;
+            padding: 15px 25px;
+        }
+        .footer-text {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- 标题区 -->
+<div class="header">
+    <h2>🏢 站点新增配置指南</h2>
+    <p>为城市新增配送站点，优化运力管理和区域配送效率</p>
+</div>
+
+<!-- 模块一：配置操作流程 -->
+<div class="section">
+    <h3 class="section-title">🔧 一、配置操作流程</h3>
+    
+    <div>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">进入站点管理页面</div>
+          <div class="step-desc">城市后台 → <strong>运营</strong> → <strong>站点管理</strong> → 点击<strong>「新增站点」</strong></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">填写站点基本信息</div>
+          <div class="step-desc">输入<strong>站点名称</strong>（如：XX 区 XX 路站）、选择<strong>站点类型</strong>（直营/加盟/优必达）、设置<strong>站点负责人</strong>及联系方式</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">设置站点服务区域</div>
+          <div class="step-desc">在地图上<strong>绘制围栏</strong>或<strong>选择已有围栏</strong>，明确站点配送范围（建议 3-5 公里半径）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <div class="step-title">配置站点运力</div>
+          <div class="step-desc">设置<strong>目标跑男数</strong>（如 20-50 人）、<strong>日均单量目标</strong>、<strong>营业时间</strong>（如 8:00-22:00）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <div class="step-title">设置站点计价规则</div>
+          <div class="step-desc">选择或新建<strong>计价规则</strong>，配置基础配送费、距离加价、时段加价等（可复用城市统一规则）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <div class="step-title">提交审核并启用</div>
+          <div class="step-desc">确认信息无误后提交 → <strong>城市对接人审核</strong> → 审核通过后站点自动启用，跑男可绑定该站点</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- 系统路径 -->
+    <div class="system-path">
+      <div class="system-path-label">📍 系统路径</div>
+      <div class="system-path-value">城市后台 → 运营 → 站点管理 → 新增站点</div>
+    </div>
+  </div>
+
+<!-- 模块二：配置推荐方案 -->
+<div class="solutions">
+    <h3 class="solutions-title">💡 二、配置推荐方案</h3>
+    
+    <div class="solution-card">
+        <div class="solution-name">🏙️ 商圈核心站点方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>城市核心商圈订单集中，需要重点保障履约</div>
+            <div><strong>配置参数：</strong>站点类型：优必达 | 服务范围：2-3 公里 | 目标跑男：30-50 人 | 营业时间：24 小时</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">🏘️ 社区配送站点方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>大型社区集中区域，主打居民配送服务</div>
+            <div><strong>配置参数：</strong>站点类型：加盟 | 服务范围：3-5 公里 | 目标跑男：15-30 人 | 营业时间：8:00-22:00</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">🎓 校园专属站点方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>大学城、高校园区，学生订单集中</div>
+            <div><strong>配置参数：</strong>站点类型：直营 | 服务范围：1-2 公里（校内） | 目标跑男：10-20 人（学生兼职） | 营业时间：10:00-21:00</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">🏭 工业园区站点方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>工业园区、写字楼集中区域，午高峰订单多</div>
+            <div><strong>配置参数：</strong>站点类型：加盟 | 服务范围：3-5 公里 | 目标跑男：20-40 人 | 营业时间：9:00-20:00（重点保障午高峰）</div>
+        </div>
+    </div>
+    
+  </div>
+
+<!-- 底部提醒 -->
+<div class="footer">
+    <div class="footer-text">
+      <strong>⚠️ 关键提醒：</strong>站点服务区域<strong>不要重叠</strong>，避免跑男抢单冲突；新增站点后需及时招募跑男绑定站点，否则影响履约效率！
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

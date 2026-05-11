@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空单奖励配置指南 - UU 跑腿城市运营专家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+        .section {
+            padding: 25px;
+        }
+        .section-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 15px;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        .step-desc {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .step-image {
+            margin-top: 8px;
+        }
+        .step-image img {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: max-width 0.3s;
+        }
+        .system-path {
+            background: #f8fafc;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 20px;
+        }
+        .system-path-label {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .system-path-value {
+            color: #1e293b;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .solutions {
+            background: #f9fafb;
+            padding: 25px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .solutions-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        .solution-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+        }
+        .solution-name {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .solution-detail {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .solution-detail div {
+            margin-bottom: 4px;
+        }
+        .footer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-top: 2px solid #f59e0b;
+            padding: 15px 25px;
+        }
+        .footer-text {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- 标题区 -->
+<div class="header">
+    <h2>🎁 空单奖励配置指南</h2>
+    <p>跑男身上没单时接单给奖励，激励新跑男和流失跑男首次接单</p>
+</div>
+
+<!-- 模块一：配置操作流程 -->
+<div class="section">
+    <h3 class="section-title">🔧 一、配置操作流程</h3>
+    
+    <div>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">进入配置页面</div>
+          <div class="step-desc">城市后台 → <strong>跑男</strong> → <strong>跑男订单奖励</strong> → <strong>订单奖励活动管理</strong> → 点击<strong>「新增」</strong> → 选择<strong>「空单奖励」</strong></div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/yBRq1Zvmz2PpyOdv/img/3631f293-bc8c-4716-9ecd-66f4007f4547.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">设置活动时间段</div>
+          <div class="step-desc">选择活动开始和结束日期，可设置<strong>午高峰（11:00-14:00）</strong>或<strong>晚高峰（17:00-20:00）</strong></div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">选择参与对象</div>
+          <div class="step-desc"><strong>商户范围</strong>：所有或特定商户/行业 | <strong>跑男范围</strong>：所有跑男 或 按标签筛选（如新跑男、流失跑男）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <div class="step-title">设置订单范围</div>
+          <div class="step-desc">可按<strong>订单配送费</strong>、<strong>订单距离</strong>、<strong>行业类型</strong>筛选（如只奖励 3 公里内订单）</div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/yBRq1Zvmz2PpyOdv/img/85572d56-d7df-4881-b136-ccf3f49feaf5.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <div class="step-title">选择奖励模式</div>
+          <div class="step-desc"><strong>额外补贴</strong>：空单接奖 0.5 元，订单费不变 | <strong>收入拆分</strong>：订单费拆为基础 + 奖励，完成全得</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <div class="step-title">提交审批</div>
+          <div class="step-desc">确认信息后提交 → <strong>联系城市对接人审核</strong> → 审核通过后自动生效</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- 系统路径 -->
+    <div class="system-path">
+      <div class="system-path-label">📍 系统路径</div>
+      <div class="system-path-value">城市后台 → 跑男 → 跑男订单奖励 → 订单奖励活动管理 → 空单奖励</div>
+    </div>
+  </div>
+
+<!-- 模块二：配置推荐方案 -->
+<div class="solutions">
+    <h3 class="solutions-title">💡 二、配置推荐方案</h3>
+    
+    <div class="solution-card">
+        <div class="solution-name">🆕 新跑男首单激活方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>新签约跑男不接首单，留存率低</div>
+            <div><strong>配置参数：</strong>空单奖励 2 元 | 仅新跑男（签约 7 天内） | 全天生效 | 额外补贴模式</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">🔄 流失跑男回归方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>上周跑过这周不跑的流失跑男</div>
+            <div><strong>配置参数：</strong>空单奖励 1 元 | 针对流失人群（工作流筛选） | 午高峰 11:00-14:00</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">⏰ 低峰期运力激活方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>下午 2-5 点等低峰期跑男上线少</div>
+            <div><strong>配置参数：</strong>空单奖励 0.5 元 | 每天 14:00-17:00 | 所有跑男 | 收入拆分模式控成本</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">🎯 特定区域运力调配方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>某区域订单多但跑男少，需要调配运力</div>
+            <div><strong>配置参数：</strong>空单奖励 1.5 元 | 仅该区域围栏内订单 | 晚高峰 17:00-20:00</div>
+        </div>
+    </div>
+    
+  </div>
+
+<!-- 底部提醒 -->
+<div class="footer">
+    <div class="footer-text">
+      <strong>⚠️ 关键提醒：</strong>空单奖励<strong>仅跑男身上没单时接第一单有效</strong>，身上有单时接单无空单奖励！适合激励新跑男破冰首单。
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

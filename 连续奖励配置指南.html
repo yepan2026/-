@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>连续奖励配置指南 - UU 跑腿城市运营专家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+        .section {
+            padding: 25px;
+        }
+        .section-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 15px;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        .step-desc {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .step-image {
+            margin-top: 8px;
+        }
+        .step-image img {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: max-width 0.3s;
+        }
+        .system-path {
+            background: #f8fafc;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 20px;
+        }
+        .system-path-label {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .system-path-value {
+            color: #1e293b;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .solutions {
+            background: #f9fafb;
+            padding: 25px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .solutions-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        .solution-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+        }
+        .solution-name {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .solution-detail {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .solution-detail div {
+            margin-bottom: 4px;
+        }
+        .footer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-top: 2px solid #f59e0b;
+            padding: 15px 25px;
+        }
+        .footer-text {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- 标题区 -->
+<div class="header">
+    <h2>📅 连续奖励配置指南</h2>
+    <p>跑男连续多天完成目标才给奖励，提高跑男留存和活跃度</p>
+</div>
+
+<!-- 模块一：配置操作流程 -->
+<div class="section">
+    <h3 class="section-title">🔧 一、配置操作流程</h3>
+    
+    <div>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">进入配置页面</div>
+          <div class="step-desc">城市后台 → <strong>跑男</strong> → <strong>加价奖励</strong> → <strong>连续奖励</strong> → 点击<strong>「新增」</strong></div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/ABmOoWbL0m8w2Oaw/img/d3fb77b7-fb17-4066-87ef-5124e05cadc8.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">填写活动基本信息</div>
+          <div class="step-desc">输入活动名称，设置活动开始和结束日期（建议至少 7 天）</div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/ABmOoWbL0m8w2Oaw/img/bd68e26a-3291-4840-9ccf-9adc044ec282.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">设置必达日规则</div>
+          <div class="step-desc"><strong>必达日</strong>：必须完成目标的天数，可单独设置时间段和单量要求（新增功能）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <div class="step-title">设置连续天数和单量</div>
+          <div class="step-desc">例如：<strong>连续 5 天</strong>，每天完成<strong>20 单</strong>，奖励<strong>88 元</strong></div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/ABmOoWbL0m8w2Oaw/img/af4b19ca-3aec-4853-93bc-9057ac7da147.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <div class="step-title">选择参与人群</div>
+          <div class="step-desc"><strong>所有跑男</strong> 或 按跑男标签筛选（如核心跑男、战队成员）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <div class="step-title">提交审批</div>
+          <div class="step-desc">确认信息后提交 → <strong>联系城市对接人审核</strong> → 审核通过后自动生效</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- 系统路径 -->
+    <div class="system-path">
+      <div class="system-path-label">📍 系统路径</div>
+      <div class="system-path-value">城市后台 → 跑男 → 加价奖励 → 连续奖励 → 新增</div>
+    </div>
+  </div>
+
+<!-- 模块二：配置推荐方案 -->
+<div class="solutions">
+    <h3 class="solutions-title">💡 二、配置推荐方案</h3>
+    
+    <div class="solution-card">
+      <div class="solution-name">📈 跑男提频方案</div>
+      <div class="solution-detail">
+        <div><strong>适用场景：</strong>跑男活跃度低，需要提高跑单频率</div>
+        <div><strong>配置参数：</strong>连续 5 天每天 20 单奖 88 元 | 活动 7 天 | 所有跑男</div>
+      </div>
+    </div>
+    
+    <div class="solution-card">
+      <div class="solution-name">🎯 核心跑男绑定方案</div>
+      <div class="solution-detail">
+        <div><strong>适用场景：</strong>绑定核心运力，防止流失到竞对平台</div>
+        <div><strong>配置参数：</strong>连续 7 天每天 30 单奖 200 元 | 仅核心跑男/战队成员参与</div>
+      </div>
+    </div>
+    
+    <div class="solution-card">
+      <div class="solution-name">🎉 节假日运力锁定方案</div>
+      <div class="solution-detail">
+        <div><strong>适用场景：</strong>春节、国庆等节假日前锁定运力</div>
+        <div><strong>配置参数：</strong>连续 3 天每天 15 单奖 66 元 | 节前 3 天开始 | 必达日设置除夕/初一</div>
+      </div>
+    </div>
+    
+    <div class="solution-card">
+      <div class="solution-name">🆕 新跑男留存方案</div>
+      <div class="solution-detail">
+        <div><strong>适用场景：</strong>新签约跑男前 7 天留存率低</div>
+        <div><strong>配置参数：</strong>连续 3 天每天 5 单奖 30 元 | 仅新跑男（签约 7 天内）</div>
+      </div>
+    </div>
+    
+  </div>
+
+<!-- 底部提醒 -->
+<div class="footer">
+    <div class="footer-text">
+      <strong>⚠️ 关键提醒：</strong>活动时间内必须<strong>连续完成</strong>目标天数，不能跳着完成！中间断 1 天就要重新开始计算。
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

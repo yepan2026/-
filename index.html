@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UU 跑腿城市运营专家 - 配置指南查询系统</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            color: white;
+            padding: 30px 20px;
+        }
+        .header h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .header p {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        .search-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            margin-bottom: 30px;
+        }
+        .search-input-wrapper {
+            display: flex;
+            gap: 10px;
+        }
+        .search-input {
+            flex: 1;
+            padding: 15px 20px;
+            font-size: 16px;
+            border: 2px solid #e5e7eb;
+            border-radius: 10px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+        .search-input:focus {
+            border-color: #667eea;
+        }
+        .search-button {
+            padding: 15px 30px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: transform 0.2s;
+        }
+        .search-button:hover {
+            transform: translateY(-2px);
+        }
+        .quick-questions {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .quick-tag {
+            padding: 8px 16px;
+            background: #f3f4f6;
+            border-radius: 20px;
+            font-size: 14px;
+            color: #6b7280;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        .quick-tag:hover {
+            background: #667eea;
+            color: white;
+        }
+        .result-box {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+        }
+        .result-box.active {
+            display: block;
+        }
+        .result-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 20px;
+            margin: -30px -30px 25px -30px;
+            border-radius: 15px 15px 0 0;
+        }
+        .result-header h2 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .result-header p {
+            opacity: 0.9;
+            font-size: 14px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 20px;
+            gap: 15px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            font-size: 16px;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 5px;
+            font-size: 15px;
+        }
+        .step-desc {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .step-image {
+            margin-top: 10px;
+        }
+        .step-image img {
+            max-width: 100%;
+            border-radius: 8px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: max-width 0.3s;
+        }
+        .system-path {
+            background: #f8fafc;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+        }
+        .system-path-label {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .system-path-value {
+            color: #1e293b;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .solutions {
+            background: #f9fafb;
+            padding: 25px;
+            border-radius: 10px;
+            border-top: 2px solid #e5e7eb;
+        }
+        .solutions-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .solution-card {
+            background: white;
+            padding: 18px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        .solution-name {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 8px;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .solution-detail {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+        .solution-detail div {
+            margin-bottom: 5px;
+        }
+        .footer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border: 2px solid #f59e0b;
+            border-radius: 10px;
+            padding: 18px 25px;
+            margin-top: 25px;
+        }
+        .footer-text {
+            color: #92400e;
+            font-size: 15px;
+            line-height: 1.8;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .no-result {
+            text-align: center;
+            padding: 50px 20px;
+            color: #6b7280;
+        }
+        .no-result-icon {
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .search-input-wrapper {
+                flex-direction: column;
+            }
+            .header h1 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h1>🎯 UU 跑腿城市运营专家</h1>
+        <p>配置指南查询系统 - 基于官方 39 个培训文档</p>
+    </div>
+
+    <!-- 搜索框 -->
+    <div class="search-box">
+        <div class="search-input-wrapper">
+            <input type="text" class="search-input" id="searchInput" placeholder="输入您的问题，例如：满单奖励怎么配置？" onkeypress="if(event.keyCode==13) search()">
+            <button class="search-button" onclick="search()">🔍 搜索</button>
+        </div>
+        <div class="quick-questions">
+            <div class="quick-tag" onclick="quickSearch('满单奖励怎么配置？')">满单奖励</div>
+            <div class="quick-tag" onclick="quickSearch('空单奖励怎么配置？')">空单奖励</div>
+            <div class="quick-tag" onclick="quickSearch('准时达奖励怎么配置？')">准时达奖励</div>
+            <div class="quick-tag" onclick="quickSearch('连续奖励怎么配置？')">连续奖励</div>
+            <div class="quick-tag" onclick="quickSearch('站点怎么新增？')">新增站点</div>
+            <div class="quick-tag" onclick="quickSearch('优惠券怎么配置？')">优惠券</div>
+        </div>
+    </div>
+
+    <!-- 结果展示区 -->
+    <div class="result-box" id="resultBox">
+        <div class="result-header">
+            <h2 id="resultTitle">问题标题</h2>
+            <p id="resultDesc">一句话说明</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔧 一、配置操作流程</div>
+            <div id="stepsContainer"></div>
+            <div class="system-path">
+                <div class="system-path-label">📍 系统路径</div>
+                <div class="system-path-value" id="systemPath">路径 → 路径 → 路径</div>
+            </div>
+        </div>
+
+        <div class="solutions">
+            <div class="solutions-title">💡 二、配置推荐方案</div>
+            <div id="solutionsContainer"></div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                <span>⚠️ 关键提醒：</span>
+                <span id="footerText">重要注意事项</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// 知识库数据
+const knowledgeBase = [
+    {
+        keywords: ['满单奖励', '满单', '奖励配置'],
+        title: '🎯 满单奖励配置指南',
+        desc: '跑男完成指定单量就给奖励，激活和提频的神器',
+        steps: [
+            { title: '进入配置页面', desc: '城市后台 → 跑男 → 加价奖励 → 满单奖励 → 点击「新增」', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65Akp9rBQOke/img/a703d680-a6bf-4d46-876a-3c1d414ec6fe.png' },
+            { title: '填写活动名称和时间', desc: '输入活动名称，设置开始和结束日期', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65Akp9rBQOke/img/05fd7602-ee0c-46b4-a101-417c7feb70ba.png' },
+            { title: '选择执行方式', desc: '执行一次：普通满单奖励 | 每天重复：循环满单（每天都能完成）', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65Akp9rBQOke/img/a96c3be6-713b-459d-8235-45b4c2f7e259.png' },
+            { title: '选择参与范围', desc: '所有等级（不能单选等级）或 指定商户 ID', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65Akp9rBQOke/img/d9f8aa15-cb92-41d6-aab5-02ac452a101a.png' },
+            { title: '设置奖励阶梯', desc: '可设多个阶梯（满 3 单 5 元、满 5 单 10 元），奖励叠加发放' },
+            { title: '提交审批', desc: '提交后联系城市对接人审核，通过后自动生效', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65Akp9rBQOke/img/c29a6f6e-ab44-4915-9ce2-24dfd95143dd.png' }
+        ],
+        path: '城市后台 → 跑男 → 加价奖励 → 满单奖励 → 新增',
+        solutions: [
+            { name: '🆕 新跑男激活方案', scene: '新签约跑男不接单', params: '满 3 单奖 5 元 + 10 张抢单保护卡 | 执行一次 | 所有等级' },
+            { name: '🔄 流失跑男激活方案', scene: '上周跑过这周不跑了', params: '满 1 单奖 3 元 或 满 3 单奖 5 元 | 执行一次 | 针对流失人群' },
+            { name: '📈 周末提频方案', scene: '周末运力不足，需要冲单量', params: '满 10 单 15 元、满 20 单 35 元、满 30 单 60 元 | 每周五 - 周日重复' },
+            { name: '🏪 商户履约保障方案', scene: '高取消商户，午高峰取消多', params: '满 3 单奖 3 元 | 每天 11:00-14:00 循环 | 针对特定商户' }
+        ],
+        reminder: '奖励阶梯是叠加发放的（完成 10 单可同时获得 5+10+20=35 元），配置时要算好成本！'
+    },
+    {
+        keywords: ['空单奖励', '空单'],
+        title: '🎁 空单奖励配置指南',
+        desc: '跑男身上没单时接单给奖励，激励新跑男和流失跑男首次接单',
+        steps: [
+            { title: '进入配置页面', desc: '城市后台 → 跑男 → 跑男订单奖励 → 订单奖励活动管理 → 点击「新增」→ 选择「空单奖励」', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/yBRq1Zvmz2PpyOdv/img/3631f293-bc8c-4716-9ecd-66f4007f4547.png' },
+            { title: '设置活动时间段', desc: '选择活动开始和结束日期，可设置午高峰（11:00-14:00）或晚高峰（17:00-20:00）' },
+            { title: '选择参与对象', desc: '商户范围：所有或特定商户/行业 | 跑男范围：所有跑男 或 按标签筛选（如新跑男、流失跑男）' },
+            { title: '设置订单范围', desc: '可按订单配送费、订单距离、行业类型筛选（如只奖励 3 公里内订单）', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/yBRq1Zvmz2PpyOdv/img/85572d56-d7df-4881-b136-ccf3f49feaf5.png' },
+            { title: '选择奖励模式', desc: '额外补贴：空单接奖 0.5 元，订单费不变 | 收入拆分：订单费拆为基础 + 奖励，完成全得' },
+            { title: '提交审批', desc: '确认信息后提交 → 联系城市对接人审核 → 审核通过后自动生效' }
+        ],
+        path: '城市后台 → 跑男 → 跑男订单奖励 → 订单奖励活动管理 → 空单奖励',
+        solutions: [
+            { name: '🆕 新跑男首单激活方案', scene: '新签约跑男不接首单，留存率低', params: '空单奖励 2 元 | 仅新跑男（签约 7 天内） | 全天生效 | 额外补贴模式' },
+            { name: '🔄 流失跑男回归方案', scene: '上周跑过这周不跑的流失跑男', params: '空单奖励 1 元 | 针对流失人群（工作流筛选） | 午高峰 11:00-14:00' },
+            { name: '⏰ 低峰期运力激活方案', scene: '下午 2-5 点等低峰期跑男上线少', params: '空单奖励 0.5 元 | 每天 14:00-17:00 | 所有跑男 | 收入拆分模式控成本' },
+            { name: '🎯 特定区域运力调配方案', scene: '某区域订单多但跑男少，需要调配运力', params: '空单奖励 1.5 元 | 仅该区域围栏内订单 | 晚高峰 17:00-20:00' }
+        ],
+        reminder: '空单奖励仅跑男身上没单时接第一单有效，身上有单时接单无空单奖励！适合激励新跑男破冰首单。'
+    },
+    {
+        keywords: ['准时达', '准时送达', '超时'],
+        title: '⏰ 准时达奖励配置指南',
+        desc: '跑男提前送达给奖励，降低超时率和取消率',
+        steps: [
+            { title: '进入配置页面', desc: '城市后台 → 跑男 → 跑男订单奖励 → 订单奖励活动管理 → 点击「新增」→ 选择「准时达奖励」', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/yBRq1Zvmz2PpyOdv/img/e984520a-700e-42ca-8fd8-616423f2c4e3.png' },
+            { title: '选择奖励类型', desc: '选择「准时达奖励」，设置活动时间段（如午高峰 11:00-14:00）' },
+            { title: '选择参与对象', desc: '商户范围：所有或特定商户/行业 | 跑男范围：所有或按标签筛选' },
+            { title: '设置订单范围', desc: '可按订单配送费、订单距离、行业类型筛选（如只奖励商超订单）' },
+            { title: '选择奖励模式', desc: '额外补贴：提前送达奖 0.5 元，晚送达不扣 | 收入拆分：提前送达全得，超时扣 0.5 元', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/yBRq1Zvmz2PpyOdv/img/2ee0d070-9172-4cd1-bb71-bb0b0ba9bd45.png' },
+            { title: '提交审批', desc: '确认信息后提交 → 联系城市对接人审核 → 审核通过后自动生效' }
+        ],
+        path: '城市后台 → 跑男 → 跑男订单奖励 → 订单奖励活动管理 → 准时达奖励',
+        solutions: [
+            { name: '🔥 高超时商户方案', scene: '某商户超时率>10%，顾客投诉多', params: '收入拆分模式 | 提前送达奖 0.5 元 | 超时扣 0.5 元 | 针对特定商户' },
+            { name: '⏰ 午高峰履约方案', scene: '午高峰（11-14 点）超时订单集中', params: '额外补贴模式 | 每单奖 0.5 元 | 每天 11:00-14:00 循环 | 所有商户' },
+            { name: '💰 成本控制方案', scene: '想降低超时率，又要控制活动成本', params: '收入拆分模式 | 订单费拆为 4.5 元 +0.5 元 | 提前送达全得，超时只得 4.5 元' },
+            { name: '🎯 特定行业方案', scene: '鲜花、蛋糕等行业超时率高', params: '额外补贴 0.5-1 元 | 仅选择特定行业 | 晚高峰 17:00-20:00' }
+        ],
+        reminder: '想控制成本用收入拆分模式（不额外花钱），想快速见效用额外补贴模式（每单多花 0.5 元）！'
+    },
+    {
+        keywords: ['连续奖励', '连续'],
+        title: '📅 连续奖励配置指南',
+        desc: '跑男连续多天完成目标才给奖励，提高跑男留存和活跃度',
+        steps: [
+            { title: '进入配置页面', desc: '城市后台 → 跑男 → 加价奖励 → 连续奖励 → 点击「新增」', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/ABmOoWbL0m8w2Oaw/img/d3fb77b7-fb17-4066-87ef-5124e05cadc8.png' },
+            { title: '填写活动基本信息', desc: '输入活动名称，设置活动开始和结束日期（建议至少 7 天）', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/ABmOoWbL0m8w2Oaw/img/bd68e26a-3291-4840-9ccf-9adc044ec282.png' },
+            { title: '设置必达日规则', desc: '必达日：必须完成目标的天数，可单独设置时间段和单量要求（新增功能）' },
+            { title: '设置连续天数和单量', desc: '例如：连续 5 天，每天完成 20 单，奖励 88 元', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/ABmOoWbL0m8w2Oaw/img/af4b19ca-3aec-4853-93bc-9057ac7da147.png' },
+            { title: '选择参与人群', desc: '所有跑男 或 按跑男标签筛选（如核心跑男、战队成员）' },
+            { title: '提交审批', desc: '确认信息后提交 → 联系城市对接人审核 → 审核通过后自动生效' }
+        ],
+        path: '城市后台 → 跑男 → 加价奖励 → 连续奖励 → 新增',
+        solutions: [
+            { name: '📈 跑男提频方案', scene: '跑男活跃度低，需要提高跑单频率', params: '连续 5 天每天 20 单奖 88 元 | 活动 7 天 | 所有跑男' },
+            { name: '🎯 核心跑男绑定方案', scene: '绑定核心运力，防止流失到竞对平台', params: '连续 7 天每天 30 单奖 200 元 | 仅核心跑男/战队成员参与' },
+            { name: '🎉 节假日运力锁定方案', scene: '春节、国庆等节假日前锁定运力', params: '连续 3 天每天 15 单奖 66 元 | 节前 3 天开始 | 必达日设置除夕/初一' },
+            { name: '🆕 新跑男留存方案', scene: '新签约跑男前 7 天留存率低', params: '连续 3 天每天 5 单奖 30 元 | 仅新跑男（签约 7 天内）' }
+        ],
+        reminder: '活动时间内必须连续完成目标天数，不能跳着完成！中间断 1 天就要重新开始计算。'
+    },
+    {
+        keywords: ['站点', '新增站点', '站点管理'],
+        title: '🏢 站点新增配置指南',
+        desc: '为城市新增配送站点，优化运力管理和区域配送效率',
+        steps: [
+            { title: '进入站点管理页面', desc: '城市后台 → 运营 → 站点管理 → 点击「新增站点」' },
+            { title: '填写站点基本信息', desc: '输入站点名称（如：XX 区 XX 路站）、选择站点类型（直营/加盟/优必达）、设置站点负责人及联系方式' },
+            { title: '设置站点服务区域', desc: '在地图上绘制围栏或选择已有围栏，明确站点配送范围（建议 3-5 公里半径）' },
+            { title: '配置站点运力', desc: '设置目标跑男数（如 20-50 人）、日均单量目标、营业时间（如 8:00-22:00）' },
+            { title: '设置站点计价规则', desc: '选择或新建计价规则，配置基础配送费、距离加价、时段加价等（可复用城市统一规则）' },
+            { title: '提交审核并启用', desc: '确认信息无误后提交 → 城市对接人审核 → 审核通过后站点自动启用，跑男可绑定该站点' }
+        ],
+        path: '城市后台 → 运营 → 站点管理 → 新增站点',
+        solutions: [
+            { name: '🏙️ 商圈核心站点方案', scene: '城市核心商圈订单集中，需要重点保障履约', params: '站点类型：优必达 | 服务范围：2-3 公里 | 目标跑男：30-50 人 | 营业时间：24 小时' },
+            { name: '🏘️ 社区配送站点方案', scene: '大型社区集中区域，主打居民配送服务', params: '站点类型：加盟 | 服务范围：3-5 公里 | 目标跑男：15-30 人 | 营业时间：8:00-22:00' },
+            { name: '🎓 校园专属站点方案', scene: '大学城、高校园区，学生订单集中', params: '站点类型：直营 | 服务范围：1-2 公里（校内） | 目标跑男：10-20 人（学生兼职） | 营业时间：10:00-21:00' },
+            { name: '🏭 工业园区站点方案', scene: '工业园区、写字楼集中区域，午高峰订单多', params: '站点类型：加盟 | 服务范围：3-5 公里 | 目标跑男：20-40 人 | 营业时间：9:00-20:00（重点保障午高峰）' }
+        ],
+        reminder: '站点服务区域不要重叠，避免跑男抢单冲突；新增站点后需及时招募跑男绑定站点，否则影响履约效率！'
+    },
+    {
+        keywords: ['取消率', '降低取消', '取消订单'],
+        title: '📉 降低取消率方案',
+        desc: '多平台发单、运力不足导致取消率高，需要综合治理',
+        steps: [
+            { title: '分析取消原因', desc: '精细化后台 → 经营分析 → 供需匹配 → 按取消订单数排序，分析取消时间占比' },
+            { title: '1 分钟内取消（多平台发单）', desc: '配置超级接单锁定优质跑男，或协商商户独家发单' },
+            { title: '1-5 分钟取消（运力不足）', desc: '安排驻店跑男，针对取消时段上奖励（订单奖励、满单奖励）' },
+            { title: '5 分钟以上取消（无运力）', desc: '该区域招募跑男，或从临近区域调配运力' },
+            { title: '配置抢单倒计时', desc: '配置 → 抢单倒计时管理 → 新增，建议设置 3 秒及以上' },
+            { title: '开启全局派单', desc: '联系对接人开启全局派单，SA 级订单强派不可拒绝' }
+        ],
+        path: '精细化后台 → 经营分析 → 供需匹配 → 取消分析',
+        solutions: [
+            { name: '🔥 多平台发单治理方案', scene: '1 分钟内瞬时取消率高', params: '超级接单配置 | 抢单倒计时 3 秒 | 协商商户独家发单' },
+            { name: '⏰ 时段性运力补充方案', scene: '午高峰/晚高峰取消率飙升', params: '针对高峰时段上满单奖励 | 调配运力 | 设置时段加价' },
+            { name: '📍 区域运力优化方案', scene: '某区域长期取消率高', params: '分析区域围栏数据 | 新增站点 | 招募区域跑男' }
+        ],
+        reminder: '先通过抢单倒计时和超级接单快速压降瞬时取消，再用全局派单做长期结构化优化！'
+    },
+    {
+        keywords: ['优惠券', '优惠卷', '充值赠送', '口令'],
+        title: '🎫 优惠券配置指南',
+        desc: '发放优惠券吸引用户和商户，提高发单量和充值金额',
+        steps: [
+            { title: '进入优惠券配置页面', desc: '城市后台 → 优惠券 → 优惠券规则 → 点击「新增」', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/KM7qe9wxGpwbqpj8/img/6b2c91c4-fe93-4896-bfe5-fe91c65a0b15.png' },
+            { title: '填写优惠券信息', desc: '面值、数量、限额（一般为 0）、期限、折扣、全城通用开关', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/c1c71f5e-6103-4199-ab76-d3ebeeb91557.png' },
+            { title: '发放商户优惠券', desc: '复制规则编号 → 优惠券列表 → 发放 → 填写商户手机号', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/8734c5ad-6b29-4726-9db4-5cef678560b7.png' },
+            { title: '发放企业优惠券', desc: '查询企业用户 ID → 发放时填写「跑腿用户 ID」（前面加@）', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/f35dd069-3f12-42c9-b2ae-ebb2594f8e92.png' },
+            { title: '配置充值赠送', desc: '活动 → 充值类 → 官方充值赠送 → 新增 → 选择优惠券规则编号', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/dd67705f-0c6d-466d-ad22-daf5cda23e2b.png' },
+            { title: '配置口令优惠券', desc: '审批 → 口令优惠券 → 新增 → 填写口令和领取规则（需审批，无法自行停止）', image: 'https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/AJdl65Akp9rBQOke/img/9a9f200e-7dbf-4e8b-ad14-fbed1a881f20.png' }
+        ],
+        path: '城市后台 → 优惠券 → 优惠券规则 → 新增',
+        solutions: [
+            { name: '🆕 新商户激活方案', scene: '新注册商户不发单，需要首单激励', params: '满 5 减 3 元券 × 5 张 | 按手机号发放 | 有效期 7 天' },
+            { name: '💰 充值促销方案', scene: '提高商户充值金额和留存率', params: '充 500 送 50 元券×5 张 | 充 1000 送 120 元券×10 张 | 官方充值赠送' },
+            { name: '🎉 节日营销方案', scene: '春节、国庆等节日拉新促活', params: '口令优惠券「UU666」| 满 10 减 5 元 | 朋友圈/微信群宣导' },
+            { name: '🔄 流失商户召回方案', scene: '1 个月未发单的流失商户', params: '满 3 减 2 元券 × 3 张 | 工作流筛选人群 + 短信宣导' }
+        ],
+        reminder: '口令优惠券审批通过后无法自行停止，需谨慎配置！充值赠送需先配置优惠券规则并选择「官方充值」赠送来源。'
+    }
+];
+
+// 搜索功能
+function search() {
+    const query = document.getElementById('searchInput').value.trim();
+    if (!query) return;
+    
+    // 匹配最相关的知识库条目
+    let bestMatch = null;
+    let bestScore = 0;
+    
+    knowledgeBase.forEach(item => {
+        let score = 0;
+        item.keywords.forEach(keyword => {
+            if (query.includes(keyword)) score += 2;
+        });
+        if (item.title.includes(query)) score += 5;
+        
+        if (score > bestScore) {
+            bestScore = score;
+            bestMatch = item;
+        }
+    });
+    
+    if (bestMatch && bestScore > 0) {
+        displayResult(bestMatch);
+    } else {
+        displayNoResult();
+    }
+}
+
+// 快速搜索
+function quickSearch(question) {
+    document.getElementById('searchInput').value = question;
+    search();
+}
+
+// 显示结果
+function displayResult(data) {
+    document.getElementById('resultBox').classList.add('active');
+    document.getElementById('resultTitle').textContent = data.title;
+    document.getElementById('resultDesc').textContent = data.desc;
+    document.getElementById('systemPath').textContent = data.path;
+    document.getElementById('footerText').textContent = data.reminder;
+    
+    // 渲染步骤
+    const stepsContainer = document.getElementById('stepsContainer');
+    stepsContainer.innerHTML = '';
+    data.steps.forEach((step, index) => {
+        const stepHtml = `
+            <div class="step">
+                <div class="step-number">${index + 1}</div>
+                <div class="step-content">
+                    <div class="step-title">${step.title}</div>
+                    <div class="step-desc">${step.desc}</div>
+                    ${step.image ? `<div class="step-image"><img src="${step.image}" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/></div>` : ''}
+                </div>
+            </div>
+        `;
+        stepsContainer.innerHTML += stepHtml;
+    });
+    
+    // 渲染方案
+    const solutionsContainer = document.getElementById('solutionsContainer');
+    solutionsContainer.innerHTML = '';
+    data.solutions.forEach(sol => {
+        const solHtml = `
+            <div class="solution-card">
+                <div class="solution-name">${sol.name}</div>
+                <div class="solution-detail">
+                    <div><strong>适用场景：</strong>${sol.scene}</div>
+                    <div><strong>配置参数：</strong>${sol.params}</div>
+                </div>
+            </div>
+        `;
+        solutionsContainer.innerHTML += solHtml;
+    });
+    
+    // 滚动到结果区
+    document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
+}
+
+// 显示无结果
+function displayNoResult() {
+    document.getElementById('resultBox').classList.add('active');
+    document.getElementById('resultBox').innerHTML = `
+        <div class="no-result">
+            <div class="no-result-icon">😕</div>
+            <h3>暂未找到匹配的配置指南</h3>
+            <p style="margin-top: 10px;">请尝试其他关键词，如：满单奖励、空单奖励、准时达、连续奖励、站点新增、降低取消率</p>
+        </div>
+    `;
+}
+
+// 页面加载时恢复结果框结构
+window.addEventListener('load', function() {
+    const resultBox = document.getElementById('resultBox');
+    resultBox.innerHTML = `
+        <div class="result-header">
+            <h2 id="resultTitle">问题标题</h2>
+            <p id="resultDesc">一句话说明</p>
+        </div>
+
+        <div class="section">
+            <div class="section-title">🔧 一、配置操作流程</div>
+            <div id="stepsContainer"></div>
+            <div class="system-path">
+                <div class="system-path-label">📍 系统路径</div>
+                <div class="system-path-value" id="systemPath">路径 → 路径 → 路径</div>
+            </div>
+        </div>
+
+        <div class="solutions">
+            <div class="solutions-title">💡 二、配置推荐方案</div>
+            <div id="solutionsContainer"></div>
+        </div>
+
+        <div class="footer">
+            <div class="footer-text">
+                <span>⚠️ 关键提醒：</span>
+                <span id="footerText">重要注意事项</span>
+            </div>
+        </div>
+    `;
+});
+</script>
+
+</body>
+</html>

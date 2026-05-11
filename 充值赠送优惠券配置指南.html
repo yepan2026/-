@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>充值赠送优惠券配置指南 - UU 跑腿城市运营专家</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f5f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+        }
+        .header h2 {
+            margin: 0;
+            font-size: 26px;
+        }
+        .header p {
+            margin: 10px 0 0 0;
+            opacity: 0.9;
+            font-size: 15px;
+        }
+        .section {
+            padding: 25px;
+        }
+        .section-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        .step {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            flex-shrink: 0;
+            margin-right: 12px;
+            font-size: 15px;
+        }
+        .step-content {
+            flex: 1;
+        }
+        .step-title {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 4px;
+        }
+        .step-desc {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .step-image {
+            margin-top: 8px;
+        }
+        .step-image img {
+            max-width: 100%;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+            cursor: pointer;
+            transition: max-width 0.3s;
+        }
+        .system-path {
+            background: #f8fafc;
+            border: 2px dashed #94a3b8;
+            border-radius: 8px;
+            padding: 12px 15px;
+            margin-top: 20px;
+        }
+        .system-path-label {
+            color: #64748b;
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+        .system-path-value {
+            color: #1e293b;
+            font-weight: bold;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        .solutions {
+            background: #f9fafb;
+            padding: 25px;
+            border-top: 1px solid #e5e7eb;
+        }
+        .solutions-title {
+            color: #1f2937;
+            font-size: 20px;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #22c55e;
+            padding-bottom: 10px;
+        }
+        .solution-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 12px;
+        }
+        .solution-name {
+            font-weight: bold;
+            color: #1f2937;
+            margin-bottom: 6px;
+            font-size: 15px;
+        }
+        .solution-detail {
+            color: #6b7280;
+            font-size: 14px;
+            line-height: 1.7;
+        }
+        .solution-detail div {
+            margin-bottom: 4px;
+        }
+        .footer {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-top: 2px solid #f59e0b;
+            padding: 15px 25px;
+        }
+        .footer-text {
+            color: #92400e;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- 标题区 -->
+<div class="header">
+    <h2>💰 充值赠送优惠券配置指南</h2>
+    <p>商户充值送优惠券，提高充值金额和平台留存率</p>
+</div>
+
+<!-- 模块一：配置操作流程 -->
+<div class="section">
+    <h3 class="section-title">🔧 一、配置操作流程</h3>
+    
+    <div>
+      
+      <div class="step">
+        <div class="step-number">1</div>
+        <div class="step-content">
+          <div class="step-title">第一步：新增充值赠送优惠券规则</div>
+          <div class="step-desc">城市后台 → <strong>优惠券</strong> → <strong>优惠券规则</strong> → 点击<strong>「新增」</strong></div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/89b56893-44bb-446d-9e2f-ede1f159f914.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">2</div>
+        <div class="step-content">
+          <div class="step-title">填写优惠券规则信息</div>
+          <div class="step-desc"><strong>目标用户</strong>：用户/商户/全部 | <strong>赠送来源</strong>：必须选<strong>「官方充值」</strong> | <strong>申请部门</strong>：代理城市 | <strong>面值/数量/期限/折扣</strong>：按实际需求填写</div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/07f5c98b-5dbc-4d34-8019-62784085da27.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">3</div>
+        <div class="step-content">
+          <div class="step-title">获取优惠券规则编号</div>
+          <div class="step-desc">保存后系统生成<strong>规则编号</strong>，复制备用（后续配置充值活动要用）</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">4</div>
+        <div class="step-content">
+          <div class="step-title">第二步：配置充值赠送活动</div>
+          <div class="step-desc">城市后台 → <strong>活动</strong> → <strong>充值类</strong> → <strong>官方充值赠送</strong> → 点击<strong>「新增」</strong></div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/dd67705f-0c6d-466d-ad22-daf5cda23e2b.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">5</div>
+        <div class="step-content">
+          <div class="step-title">填写活动配置信息</div>
+          <div class="step-desc"><strong>显示位置</strong>：常规充值入口 | <strong>用户类型</strong>：用户/商户 | <strong>用户等级</strong>：可选多个 | <strong>活动时间</strong>：设置充值赠送时间区间</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">6</div>
+        <div class="step-content">
+          <div class="step-title">设置充值金额和赠送优惠券</div>
+          <div class="step-desc"><strong>充值金额</strong>：50/100/500/1000/5000 等 | <strong>赠送优惠券</strong>：选择第 1-3 步配置的规则编号 | <strong>充值须知</strong>：填写用户可见说明</div>
+          <div class="step-image">
+            <img src="https://alidocs.oss-cn-zhangjiakou.aliyuncs.com/res/vBPlN5jGrmxwXOdG/img/f4b36b46-f9cd-4e62-b3b3-a961e63258a5.png" onclick="this.style.maxWidth=this.style.maxWidth==='100%'?'300px':'100%'"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">7</div>
+        <div class="step-content">
+          <div class="step-title">添加多档充值规则（可选）</div>
+          <div class="step-desc">如需多档充值赠送，点击左下角<strong>蓝色加号</strong>添加多个规则，最后统一提交</div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-number">8</div>
+        <div class="step-content">
+          <div class="step-title">提交审批</div>
+          <div class="step-desc">确认信息无误后提交 → <strong>城市对接人审核</strong> → 审核通过后自动生效</div>
+        </div>
+      </div>
+
+    </div>
+    
+    <!-- 系统路径 -->
+    <div class="system-path">
+      <div class="system-path-label">📍 系统路径</div>
+      <div class="system-path-value">1. 优惠券 → 优惠券规则 → 新增 → 2. 活动 → 充值类 → 官方充值赠送 → 新增</div>
+    </div>
+  </div>
+
+<!-- 模块二：配置推荐方案 -->
+<div class="solutions">
+    <h3 class="solutions-title">💡 二、配置推荐方案</h3>
+    
+    <div class="solution-card">
+        <div class="solution-name">🆕 新商户首充激励方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>新注册商户首次充值意愿低</div>
+            <div><strong>配置参数：</strong>充 100 送 20 元券×2 张 | 仅新商户（注册 30 天内） | 有效期 15 天</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">💎 大额充值锁定方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>提高商户充值金额，锁定长期发单</div>
+            <div><strong>配置参数：</strong>充 500 送 50 元券×5 张 + 充 1000 送 120 元券×10 张 | 所有商户 | 有效期 30 天</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">📈 月度充值活动方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>每月初冲充值业绩，提高商户活跃度</div>
+            <div><strong>配置参数：</strong>充 200 送 30 元券×3 张 | 每月 1-5 日 | 限前 100 名 | 工作流 + 短信宣导</div>
+        </div>
+    </div>
+    
+    <div class="solution-card">
+        <div class="solution-name">🎯 核心商户专属方案</div>
+        <div class="solution-detail">
+            <div><strong>适用场景：</strong>针对 S/A 级高价值商户专属充值福利</div>
+            <div><strong>配置参数：</strong>充 1000 送 150 元券×10 张 + 优先派单权益 | 仅 S/A 级商户 | 有效期 60 天</div>
+        </div>
+    </div>
+    
+  </div>
+
+<!-- 底部提醒 -->
+<div class="footer">
+    <div class="footer-text">
+      <strong>⚠️ 关键提醒：</strong>优惠券规则的<strong>「赠送来源」必须选择「官方充值」</strong>，否则在充值赠送活动中无法选择该规则！多档充值规则可点击蓝色加号添加，最后统一提交审批。
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
